@@ -4,8 +4,7 @@ This repository contains interactive 3D visualizations of gravitational waveform
 
 **Viviana Anahi Caceres**, *“Persistence of post-Newtonian structure in black hole mergers”*, submitted to *Physical Review D* (2025).
 
-📄 [View the paper (arXiv link or DOI if available)](https://arxiv.org/abs/xxxxx)  
-🌐 [Live interactive plots](https://yourusername.github.io/gw-modes-interactive/)
+🌐 [Live interactive plots](https://viviana-caceres.github.io/GW-mode-fits-interactive/)
 
 ---
 
