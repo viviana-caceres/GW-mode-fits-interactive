@@ -56,112 +56,105 @@
 
   <h1>Interactive 3D Plots from “Persistence of post-Newtonian structure in binary black hole mergers”</h1>
 
-  <nav style="background-color: #f0f0f0; padding: 10px;">
-    <strong>Plots:</strong>
-    <a href="3d_plots/leading_order_21_q10.html" target="plot_frame">Leading Order (2,1) q=1.0</a> |
-    <a href="3d_plots/leading_order_21_q15.html" target="plot_frame">Leading Order (2,1) q=1.5</a> |
-    <a href="3d_plots/leading_order_21_q15.html" target="plot_frame">Leading Order (2,1) q=2.0</a>
-  </nav>
-  
-  <iframe name="plot_frame" width="100%" height="600" style="border:none;"></iframe>
+  <div style="background:#f0f0f0; padding:1rem; border-radius:8px; max-width: 700px; margin-bottom:1rem;">
+    <label for="mode-select"><strong>Select mode:</strong></label>
+    <select id="mode-select">
+      <option value="21">(2,1)</option>
+      <option value="32">(3,2)</option>
+      <!-- Add more modes here -->
+    </select>
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 1.0</div>
-    <iframe src="3d_plots/leading_order_21_q10.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
+    <label for="fit-select" style="margin-left:1rem;"><strong>Select fit:</strong></label>
+    <select id="fit-select">
+      <option value="leading_order">Leading Order (PN-inspired)</option>
+      <option value="linear">Linear</option>
+      <option value="quadratic">Quadratic</option>
+    </select>
+
+    <label for="q-select" style="margin-left:1rem;"><strong>Mass ratio (q):</strong></label>
+    <select id="q-select">
+      <option value="1.0">1.0</option>
+      <option value="1.5">1.5</option>
+      <option value="2.0">2.0</option>
+      <!-- Add more mass ratios here -->
+    </select>
   </div>
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 1.5</div>
-    <iframe src="3d_plots/leading_order_21_q15.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
+  <iframe id="plot-frame" src="3d_plots/leading_order_21_q10.html" width="100%" height="600" style="border:none;"></iframe>
+
+  <div id="plot-caption" style="margin-top:1rem; font-size:1rem; color:#555;">
+    Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in Eq. (1) of the paper are shown. The best-fit surfaces were obtained using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. Colors indicate the modes displayed in each row, and markers denote the numerical relativity catalog associated with each data point.
   </div>
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 2.0</div>
-    <iframe src="3d_plots/leading_order_21_q20.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
-  </div>
+  <script>
+    // Define your available plots and captions
+    const plotData = {
+      "leading_order": {
+        "21": {
+          "1.0": {
+            file: "3d_plots/leading_order_21_q10.html",
+            caption: "Snapshots of the \\((\\ell, m)\\)-mode amplitudes, normalized to the \\((2,2)\\) mode, at selected times \\(t\\) relative to the peak of the \\((2,2)\\) mode, displayed on a grid of \\(\\chi_{1z}\\) and \\(\\chi_{2z}\\). Best-fit surfaces based on the leading-order fits defined in Eq. (1) of the paper are shown. The best-fit surfaces were obtained using data from the <abbr title='Simulating eXtreme Spacetimes'>SXS</abbr> catalog only. Colors indicate the modes displayed in each row, and markers denote the numerical relativity catalog associated with each data point."
+          },
+          "1.5": {
+            file: "3d_plots/leading_order_21_q15.html",
+            caption: "Similar leading-order fit snapshots for q=1.5."
+          },
+          "2.0": {
+            file: "3d_plots/leading_order_21_q20.html",
+            caption: "Similar leading-order fit snapshots for q=2.0."
+          }
+        },
+        "32": {
+          "1.0": {
+            file: "3d_plots/leading_order_32_q10.html",
+            caption: "Leading-order fits for the (3,2) mode at q=1.0."
+          }
+          // add more q for mode 32 if you have
+        }
+      },
+      "linear": {
+        "21": {
+          "1.0": {
+            file: "3d_plots/linear_21_q10.html",
+            caption: "Linear fits for (2,1) mode q=1.0."
+          }
+          // Add more here
+        }
+      },
+      "quadratic": {
+        "21": {
+          "1.0": {
+            file: "3d_plots/quadratic_21_q10.html",
+            caption: "Quadratic fits for (2,1) mode q=1.0."
+          }
+          // Add more here
+        }
+      }
+    };
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 1.0</div>
-    <iframe src="3d_plots/leading_order_32_q10.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
-  </div>
+    function updatePlot() {
+      const mode = document.getElementById('mode-select').value;
+      const fit = document.getElementById('fit-select').value;
+      const q = document.getElementById('q-select').value;
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 1.5</div>
-    <iframe src="3d_plots/leading_order_32_q20.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
-  </div>
+      if (plotData[fit] && plotData[fit][mode] && plotData[fit][mode][q]) {
+        const plotInfo = plotData[fit][mode][q];
+        document.getElementById('plot-frame').src = plotInfo.file;
+        document.getElementById('plot-caption').innerHTML = plotInfo.caption;
+      } else {
+        document.getElementById('plot-frame').src = "";
+        document.getElementById('plot-caption').innerHTML = "No plot available for this selection.";
+      }
+    }
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 2.0</div>
-    <iframe src="3d_plots/leading_order_32_q20.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
-  </div>
+    // Attach event listeners
+    document.getElementById('mode-select').addEventListener('change', updatePlot);
+    document.getElementById('fit-select').addEventListener('change', updatePlot);
+    document.getElementById('q-select').addEventListener('change', updatePlot);
 
-  <div class="plot-container">
-    <div class="plot-title">Leading-order fit snapshots for aligned-spin simulations with q = 1.0</div>
-    <iframe src="3d_plots/leading_order_43_q10.html"></iframe>
-    <div class="plot-caption">
-      Snapshots of the \((\ell, m)\)-mode amplitudes, normalized to the \((2,2)\) mode, 
-      at selected times \(t\) relative to the peak of the \((2,2)\) mode, displayed on a grid of 
-      \(\chi_{1z}\) and \(\chi_{2z}\). Best-fit surfaces based on the leading-order fits defined in 
-      Eq. (1) of the paper are shown. The best-fit surfaces were obtained 
-      using data from the <abbr title="Simulating eXtreme Spacetimes">SXS</abbr> catalog only. 
-      Colors indicate the modes displayed in each row, and markers denote the numerical relativity 
-      catalog associated with each data point.
-    </div>
-  </div>
+    // Initialize on page load
+    updatePlot();
+  </script>
 
 </body>
 </html>
