@@ -2,7 +2,7 @@
 
 This repository contains interactive 3D visualizations of gravitational waveform mode amplitude fits obtained in the paper:
 
-**Viviana Anahi Caceres**, *“Persistence of post-Newtonian structure in black hole mergers”*
+**Viviana A. Caceres Barbosa**, *“Persistence of post-Newtonian structure in black hole mergers”*
 
 🌐 [Live interactive plots](https://viviana-caceres.github.io/GW-mode-fits-interactive/)
 
@@ -11,10 +11,8 @@ This repository contains interactive 3D visualizations of gravitational waveform
 ## Contents
 
 - `index.html` – Main interactive interface
-- `style.css` – Custom styling
-- `plot.js` – JavaScript for rendering plots
-- `data/` – Contains JSON/CSV data used in the visualizations
-- `README.md` – This file
+- `3d_plots/` – Contains HTML plots used in the interface.
+- `README.md` – This file.
 
 ---
 
@@ -30,18 +28,3 @@ They allow readers to:
 ## License
 
 This repository is released under the [MIT License](LICENSE) unless otherwise noted.
-
----
-
-## Citation
-
-If you use these plots, please cite the associated paper and this repository:
-
-```bibtex
-@misc{caceres2025interactive,
-  author       = {Viviana Anahi Caceres},
-  title        = {Interactive plots for "Title of Your Paper"},
-  year         = {2025},
-  howpublished = {\url{https://yourusername.github.io/gw-modes-interactive/}},
-  note         = {Accessed July 19, 2025}
-}
