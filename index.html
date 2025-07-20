@@ -141,6 +141,11 @@
         const plotInfo = plotData[fit][mode][q];
         document.getElementById('plot-frame').src = plotInfo.file;
         document.getElementById('plot-caption').innerHTML = plotInfo.caption;
+
+        // Re-render MathJax
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          MathJax.typesetPromise([document.getElementById('plot-caption')]);
+        }
       } else {
         document.getElementById('plot-frame').src = "";
         document.getElementById('plot-caption').innerHTML = "No plot available for this selection.";
