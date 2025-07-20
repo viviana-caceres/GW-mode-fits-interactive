@@ -177,6 +177,7 @@
         const plotInfo = plotData[fit][mode][q];
         document.getElementById('plot-frame').src = plotInfo.file;
         document.getElementById('plot-caption').innerHTML = plotInfo.caption;
+        MathJax.typesetPromise();
       } else {
         document.getElementById('plot-frame').src = "";
         document.getElementById('plot-caption').innerHTML = "No plot available for this selection.";
