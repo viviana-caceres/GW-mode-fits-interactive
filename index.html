@@ -188,8 +188,8 @@
     document.getElementById("go-button").addEventListener("click", updatePlot);
 
     // Optionally initialize empty iframe or leave blank
-    plotFrame.src = "";
-    captionDiv.innerHTML = "Select options and click Go.";
+    document.getElementById("plot-frame").src = "";
+    document.getElementById("plot-caption").innerHTML = "Select options and click Go.";
   </script>
 
 </body>
