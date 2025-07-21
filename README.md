@@ -2,7 +2,7 @@
 
 This repository contains interactive 3D visualizations of gravitational waveform mode amplitude fits obtained in the paper:
 
-**Viviana A. Caceres Barbosa**, *“Persistence of post-Newtonian structure in black hole mergers”*
+**Viviana A. Cáceres Barbosa**, *“Persistence of post-Newtonian structure in black hole mergers”*
 
 🌐 [Live interactive plots](https://viviana-caceres.github.io/GW-mode-fits-interactive/)
 
