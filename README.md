@@ -1,8 +1,9 @@
-# Interactive 3D Plots [Persistence of post-Newtonian structure in black hole mergers]
+# Interactive 3D Plots [Persistence of post-Newtonian amplitude structure in black hole mergers]
 
 This repository contains interactive 3D visualizations of gravitational waveform mode amplitude fits obtained in the paper:
 
-**Viviana A. Cáceres Barbosa**, *“Persistence of post-Newtonian structure in black hole mergers”*
+**Viviana A. Cáceres-Barbosa**, *“Persistence of post-Newtonian amplitude structure in black hole mergers”* 
+[https://arxiv.org/abs/2508.21216](https://arxiv.org/abs/2508.21216)
 
 🌐 [Live interactive plots](https://viviana-caceres.github.io/GW-mode-fits-interactive/)
 
